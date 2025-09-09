@@ -47,3 +47,73 @@ int main() {
 
     return 0;
 }
+Q2.1]// default constructor
+    #include <iostream>
+#include <string>
+using namespace std;
+
+class Student {
+    string name;
+    float percentage;
+
+public:
+    Student() {
+        cout << "Enter student name: ";
+        getline(cin, name);
+        cout << "Enter percentage: ";
+        cin >> percentage;
+    }
+
+    void display() {
+        cout << "Name: " << name << endl;
+        cout << "Percentage: " << percentage << "%" << endl;
+    }
+};
+
+int main() {
+    Student s;  
+
+    cout << "\nStudent Data:\n";
+    s.display();
+
+    return 0;
+}
+Q2.2]    // Parameterized constructor
+   #include <iostream>
+#include <string>
+using namespace std;
+
+class Student {
+    string name;
+    float percentage;
+
+public:
+    Student(string n, float p) {
+        name = n;
+        percentage = p;
+    }
+
+    void display() {
+        cout << "Name: " << name << endl;
+        cout << "Percentage: " << percentage << "%" << endl;
+    }
+};
+
+int main() {
+    string name;
+    float percent;
+
+    cout << "Enter student name: ";
+    getline(cin, name);
+
+    cout << "Enter percentage: ";
+    cin >> percent;
+    Student s(name, percent);
+
+    cout << "\nStudent Data:\n";
+    s.display();
+
+    return 0;
+}
+
+
