@@ -8,40 +8,30 @@ class College {
     string course;
 
 public:
-    College(int r, string n, string c = "Computer Engineering") {
-        roll_no = r;
-        name = n;
-        course = c;
+    College() {
+        course = "Computer Engineering"; 
+        cout << "Enter roll number: ";
+        cin >> roll_no;
+        cin.ignore(); 
+        cout << "Enter name: ";
+        getline(cin, name);
     }
 
     void display() {
-        cout << "Roll No: " << roll_no << endl;
+        cout << "\nRoll No: " << roll_no << endl;
         cout << "Name: " << name << endl;
         cout << "Course: " << course << endl;
     }
 };
 
 int main() {
-    int roll;
-    string name, course;
+    cout << "Enter details for Student 1:\n";
+    College student1;
 
-    cout << "Enter Roll No for Student 1: ";
-    cin >> roll;
-    cin.ignore();  
-    cout << "Enter Name for Student 1: ";
-    getline(cin, name);
-    College student1(roll, name);
+    cout << "\nEnter details for Student 2:\n";
+    College student2;
 
-    cout << "Enter Roll No for Student 2: ";
-    cin >> roll;
-    cin.ignore();
-    cout << "Enter Name for Student 2: ";
-    getline(cin, name);
-    cout << "Enter Course for Student 2: ";
-    getline(cin, course);
-    College student2(roll, name, course);
-
-    cout << "\nStudent Details:\n";
+    cout << "\n--- Student Details ---";
     student1.display();
     student2.display();
 
