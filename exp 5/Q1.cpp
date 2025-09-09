@@ -1,36 +1,4 @@
-Q3]
-#include <iostream>
-#include <string>
-using namespace std;
 
-class College {
-    int roll_no;
-    string name;
-    string course;
-
-public:
-    College(int r, string n, string c = "Computer Engineering") {
-        roll_no = r;
-        name = n;
-        course = c;
-    }
-
-    void display() {
-        cout << "Roll No: " << roll_no << endl;
-        cout << "Name: " << name << endl;
-        cout << "Course: " << course << endl;
-    }
-};
-
-int main() {
-    int roll;
-    string name, course;
-
-    
-    cout << "Enter Roll No for Student 1: ";
-    cin >> roll;
-    cin.ignore();  
-    }
 Q1.3]
 #include <iostream>
 using namespace std;
