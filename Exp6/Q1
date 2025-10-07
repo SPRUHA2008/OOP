@@ -1,0 +1,261 @@
+//Q2
+#include <iostream>
+#include <string>
+using namespace std;
+class academic{
+    public:
+    int marks;
+    void getmarks(){
+        cout<<"enter marks:";
+        cin>>marks;
+    }
+};
+class sports{
+    public:
+    int score;
+    void getscore(){
+        cout<<"enter sports score:";
+        cin>>score;
+    }
+};
+class results:public academic,public sports{
+    public:
+    void display(){
+        cout<<"\n----Details-----"<<endl;
+        cout<<"Academic marks:"<<marks<<endl;
+         cout<<"Sports score:"<<score<<endl;
+         cout<<"Total marks:"<<(marks+score)<<endl;
+    }
+};
+int main(){
+    results r;
+    r.getmarks();
+    r.getscore();
+    r.display();
+    return 0;
+}
+//Q3
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+class Vehicle {
+protected:
+    string brand;
+    string model;
+};
+
+class Car {
+protected:
+    string type;
+};
+
+class Electric : public Vehicle, public Car {  
+public:
+    int battery_capacity;
+
+    void input() {
+        cout << "Enter brand: ";
+        cin >> brand;
+        cout << "Enter model: ";
+        cin >> model;
+        cout << "Enter type: ";
+        cin >> type;
+        cout << "Enter battery capacity: ";
+        cin >> battery_capacity;
+    }
+
+    void display() {
+        cout << "Details ---------" << endl;
+        cout << "Brand: " << brand << endl;
+        cout << "Model: " << model << endl;
+        cout << "Type: " << type << endl;
+        cout << "Battery Capacity: " << battery_capacity << endl;  
+    }
+};
+
+int main() {
+    Electric e;
+    e.input();
+    e.display();
+    return 0;
+}
+//Q4
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+class Employee {
+protected:  
+    int empID;
+    string name;
+
+public:
+    void inputBase() {
+        cout << "Enter Employee ID: ";
+        cin >> empID;
+        cout << "Enter Name: ";
+        cin >> name;
+    }
+
+    void displayBase() {
+        cout << "Employee ID: " << empID << endl;
+        cout << "Name: " << name << endl;
+    }
+};
+
+class Manager : public Employee {
+private:
+    string department;
+
+public:
+    void input() {
+        inputBase();  
+        cout << "Enter Department: ";
+        cin >> department;
+    }
+
+    void display() {
+        displayBase();  
+        cout << "Department: " << department << endl;
+        cout << "----------------" << endl;
+    }
+};
+
+class Developer : public Employee {
+private:
+    string programmingLanguage;
+
+public:
+    void input() {
+        inputBase();  
+        cout << "Enter Programming Language: ";
+        cin >> programmingLanguage;
+    }
+
+    void display() {
+        displayBase();  
+        cout << "Programming Language: " << programmingLanguage << endl;
+        cout << "----------------" << endl;
+    }
+};
+
+int main() {
+    Manager mgr;
+    cout << "Input Manager Details:" << endl;
+    mgr.input();
+
+    Developer dev;
+    cout << "Input Developer Details:" << endl;
+    dev.input();
+
+    cout << "\nManager Details:" << endl;
+    mgr.display();
+
+    cout << "Developer Details:" << endl;
+    dev.display();
+
+    return 0;
+}
+
+//Q5
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Person {
+protected:
+    string name;
+    int age;
+
+public:
+    void getPersonData() {
+        cout << "Enter Name: ";
+        cin >> name;
+        cout << "Enter Age: ";
+        cin >> age;
+    }
+
+    void showPersonData() {
+        cout << "Name: " << name << endl;
+        cout << "Age: " << age << endl;
+    }
+};
+
+class Student : public Person {
+protected:
+    int rollNo;
+
+public:
+    void getStudentData() {
+        cout << "Enter Roll Number: ";
+        cin >> rollNo;
+    }
+
+    void showStudentData() {
+        cout << "Roll No: " << rollNo << endl;
+    }
+};
+
+class Academics {
+protected:
+    int marks[5];
+    int totalMarks = 0;
+
+public:
+    void getAcademicMarks() {
+        cout << "Enter 5 subject marks: ";
+        for (int i = 0; i < 5; i++) {
+            cin >> marks[i];
+            totalMarks += marks[i];
+        }
+    }
+
+    int getTotalMarks() {
+        return totalMarks;
+    }
+};
+
+class Sports {
+protected:
+    int sportsScore;
+
+public:
+    void getSportsScore() {
+        cout << "Enter Sports Score: ";
+        cin >> sportsScore;
+    }
+
+    int getSportsMarks() {
+        return sportsScore;
+    }
+};
+
+class Result : public Student, public Academics, public Sports {
+public:
+    void displayResult() {
+        cout << "\n---- Student Result ----" << endl;
+        showPersonData();
+        showStudentData();
+        cout << "Total Academic Marks: " << getTotalMarks() << endl;
+        cout << "Sports Score: " << getSportsMarks() << endl;
+        cout << "Overall Performance (Marks + Sports): " 
+             << (getTotalMarks() + getSportsMarks()) << endl;
+    }
+};
+
+int main() {
+    Result r;
+    r.getPersonData();
+    r.getStudentData();
+    r.getAcademicMarks();
+    r.getSportsScore();
+
+    r.displayResult();
+
+    return 0;
+}
+
+
